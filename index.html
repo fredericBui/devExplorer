@@ -42,9 +42,26 @@
         }
 
         .hint {
-            background-color: #282c34;
-            color: #61dafb;
-            font-size: 0.8em;
+            background-color: #494949;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #777777;
+            border: none;
+            color: white;
+            padding: 5px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        button:hover {
+            background-color: #2a2b2b;
         }
     </style>
 </head>
@@ -76,6 +93,10 @@
                     missionContent.innerHTML += `<img src="${element.image}" alt="${element.name}" style="width:80%;">`;
                 }
                 missionContent.innerHTML += `<p>${element.description}</p>`;
+                const missionHintElement = document.createElement('div');
+                missionHintElement.innerHTML = `<button onclick="(displayHint(this))">Indice</button>`;
+                missionHintElement.innerHTML += `<p style='display:none' class='hint'>${element.concept}</p>`;
+                missionContent.appendChild(missionHintElement);
                 missionElement.addEventListener('click',(event)=>{
                     console.log(`Mission ${key + 1} clicked`);
                     console.log(currentMission);
@@ -105,6 +126,10 @@
                 document.getElementById(`mission-${currentMission}`).classList.add('focus');
                 document.getElementById(`mission-${currentMission}`).lastChild.style.display = "block";
             });
+        }
+
+        function displayHint(element){
+            element.nextSibling.style.display = "block"
         }
 
         displayMission();
