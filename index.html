@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExplorer</title>
+    <style>
+        body {
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #universe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mission {
+            background-color: #61dafb;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .mission:hover {
+            background-color: #21a1f1;
+            cursor: pointer;
+        }
+
+        .focus {
+            background-color: #21a1f1;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .hint {
+            background-color: #282c34;
+            color: #61dafb;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="universe">
+    </section>
+    <script>
+        const universe = document.getElementById('universe');
+        let currentMission = 1;
+        let missionsNumber;
+
+        async function fetchMission() {
+            const response = await fetch('./missions.json');
+            return await response.json();
+        }
+
+        async function displayMission() {
+            const response = await fetchMission();
+            missionsNumber = response.missions.length;
+            response.missions.forEach((element, key) => {
+                const missionElement = document.createElement('div');
+                missionElement.classList.add('mission');
+                missionElement.id = `mission-${key + 1}`;
+                missionElement.innerHTML = `<h1>${element.name}</h1>`;
+                const missionContent = document.createElement('div');
+                missionContent.style.display = "none";
+                if (key != missionsNumber - 1) {
+                    missionContent.innerHTML += `<img src="${element.image}" alt="${element.name}" style="width:80%;">`;
+                }
+                missionContent.innerHTML += `<p>${element.description}</p>`;
+                missionElement.addEventListener('click',(event)=>{
+                    console.log(`Mission ${key + 1} clicked`);
+                    console.log(currentMission);
+                    document.getElementById(`mission-${currentMission}`).classList.remove('focus');
+                    console.log(document.getElementById(`mission-${currentMission}`).lastChild.style.display = "none");
+                    currentMission = key + 1;
+                    event.currentTarget.classList.add('focus');
+                    event.currentTarget.lastChild.style.display = "block";
+
+                })
+                missionElement.appendChild(missionContent);
+                universe.appendChild(missionElement);
+            });
+            document.getElementById(`mission-${currentMission}`).classList.add('focus');
+            document.getElementById(`mission-${currentMission}`).lastChild.style.display = "block";
+
+            document.body.addEventListener('keydown', (event) => {
+                document.getElementById(`mission-${currentMission}`).classList.remove('focus');
+                document.getElementById(`mission-${currentMission}`).lastChild.style.display = "none";
+                if (event.key == 'ArrowUp') {
+                    if (currentMission > 1) { currentMission -= 1; }
+                    console.log(currentMission);
+                } else if (event.key == 'ArrowDown') {
+                    if (currentMission < missionsNumber) { currentMission += 1; }
+                    console.log(currentMission);
+                }
+                document.getElementById(`mission-${currentMission}`).classList.add('focus');
+                document.getElementById(`mission-${currentMission}`).lastChild.style.display = "block";
+            });
+        }
+
+        displayMission();
+
+    </script>
+</body>
+
+</html>
