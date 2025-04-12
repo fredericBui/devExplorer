@@ -94,10 +94,14 @@
                 }
                 missionContent.innerHTML += `<p>${element.description}</p>`;
                 const missionHintElement = document.createElement('div');
-                missionHintElement.innerHTML = `<button onclick="(displayHint(this))">Indice</button>`;
-                missionHintElement.innerHTML += `<p style='display:none' class='hint'>${element.concept}</p>`;
+                if (key != missionsNumber - 1) {
+                    missionHintElement.innerHTML = `<button onclick="(displayHint(this))">Indice</button>`;
+                    missionHintElement.innerHTML += `<p style='display:none' class='hint'>${element.concept}</p>`;
+
+                    missionHintElement.innerHTML += `<button onclick="(getSolution())">Solution</button>`;
+                }
                 missionContent.appendChild(missionHintElement);
-                missionElement.addEventListener('click',(event)=>{
+                missionElement.addEventListener('click', (event) => {
                     console.log(`Mission ${key + 1} clicked`);
                     console.log(currentMission);
                     document.getElementById(`mission-${currentMission}`).classList.remove('focus');
@@ -128,8 +132,18 @@
             });
         }
 
-        function displayHint(element){
+        function displayHint(element) {
             element.nextSibling.style.display = "block"
+        }
+
+        function getSolution() {
+            // download the solution 'mission1.js' in the folder solutions
+            const link = document.createElement('a');
+            link.href = `./solutions/mission${currentMission}.js`;
+            link.download = `mission${currentMission}.js`;
+            document.body.appendChild(link);
+            link.click();
+
         }
 
         displayMission();
