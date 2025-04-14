@@ -31,16 +31,16 @@
         "concept" : "Utilisation des conditions et des opérateurs de comparaison"
        },
        {
-        "name": "Jeu du pendu",
-        "image": "https://i.pinimg.com/236x/4d/32/ae/4d32ae12f0e7131a93574d41e8aeb603.jpg",
-        "description": "Créer le jeu du pendu",
-        "concept" : "Utilisation des boucles"
-       },
-       {
         "name": "Brute force",
         "image": "https://i.imgflip.com/85q7wr.jpg",
         "description": "Créer un programme qui génère toutes les combinaisons possibles d'un mot de passe",
-        "concept" : "Utilisation de la récursivité"
+        "concept" : "Utilisation des boucles"
+       },
+       {
+        "name": "Jeu du pendu",
+        "image": "https://i.pinimg.com/236x/4d/32/ae/4d32ae12f0e7131a93574d41e8aeb603.jpg",
+        "description": "Créer le jeu du pendu",
+        "concept" : "Utilisation des boucles et manipulation de tableau"
        },
        {
         "name": "URSSAF Calculator",
