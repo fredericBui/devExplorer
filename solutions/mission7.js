@@ -1,28 +1,9 @@
-// En cours de développement
 const prompt = require('prompt-sync')();
-const mysteryWord = "javascript";
-const mysteryWordLength = mysteryWord.length;
-const correctLetters = [];
-let lettersFound = [];
-let attempts = 5;
+const chineseZodiacArray = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
 
-for (let i = 0; i < mysteryWord.length; i++) {
-    correctLetters.push(mysteryWord[i]);
-}
+const birthYear = prompt("Enter your birth year: ");
 
-console.log(`Try to guess the word letter by letter. The word has ${mysteryWordLength} letters.`);
-
-while (attempts != 0) {
-    let promptedLetter = prompt("Enter a letter: ");
-    if (lettersFound.includes(promptedLetter)) {
-        console.log("You already guessed that letter. Try again.");
-    } else if (correctLetters.includes(promptedLetter)) {
-        lettersFound.push(promptedLetter);
-        console.log(`Correct! Letters found so far: [${lettersFound}]`);
-    } else {
-        attempts--;
-        console.log(`Incorrect guess. You have ${attempts} attempts left. Letters found so far: [${lettersFound}]`);
-    }
-}
-
-console.log("Game over! The word was: " + mysteryWord);
+// The Chinese Zodiac cycle starts from 1912, which is the year of the Rat.
+const zodiacIndex = (birthYear - 1912) % 12; // This will give us a number between 0 and 11, which corresponds to the index of the zodiac animal in the array.
+const zodiacAnimal = chineseZodiacArray[zodiacIndex]; // This will give us the zodiac animal based on the index calculated above.
+console.log(`Your Chinese Zodiac sign is: ${zodiacAnimal}`);

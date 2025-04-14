@@ -37,6 +37,12 @@
         "concept" : "Utilisation des boucles"
        },
        {
+        "name": "Chinese Zodiac",
+        "image": "https://images.chinahighlights.com/allpicture/2021/09/f372e03de36e475b933aa81e.jpg",
+        "description": "Créer un programme qui affiche le signe astrologique chinois d'une personne en fonction de son année de naissance",
+        "concept" : "Création de tableau et utilisation de switch"
+       },
+       {
         "name": "Jeu du pendu",
         "image": "https://i.pinimg.com/236x/4d/32/ae/4d32ae12f0e7131a93574d41e8aeb603.jpg",
         "description": "Créer le jeu du pendu",
@@ -53,12 +59,6 @@
         "image": "https://i.kym-cdn.com/news_feeds/icons/mobile/000/031/333/4ac.jpg",
         "description": "Récupérer les produits de l'API FakeStore et afficher le produit le moins cher",
         "concept" : "Utilisation de l'API Fetch et des promesses, ainsi que de la méthode sort()"
-       },
-       {
-        "name": "Chinese Zodiac",
-        "image": "https://images.chinahighlights.com/allpicture/2021/09/f372e03de36e475b933aa81e.jpg",
-        "description": "Créer un programme qui affiche le signe astrologique chinois d'une personne en fonction de son année de naissance",
-        "concept" : "Création de tableau et utilisation de switch"
        },
        {
         "name": "You're the Hero",
