@@ -40,7 +40,7 @@
         "name": "Chinese Zodiac",
         "image": "https://images.chinahighlights.com/allpicture/2021/09/f372e03de36e475b933aa81e.jpg",
         "description": "Créer un programme qui affiche le signe astrologique chinois d'une personne en fonction de son année de naissance",
-        "concept" : "Création de tableau et utilisation de switch"
+        "concept" : "Création de tableau"
        },
        {
         "name": "Jeu du pendu",
