@@ -6,12 +6,6 @@ class Hero {
         this.healPoints = healPoints;
         this.attackPoints = attackPoints;
     }
-
-    attack(monster) {
-        let damage = this.strength * 2 - monster.strength;
-        if (damage < 0) damage = 0;
-        console.log(`${this.name} attacks ${monster.name} for ${damage} damage!`);
-    }
 }
 
 class Monster {
