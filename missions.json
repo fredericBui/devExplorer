@@ -51,7 +51,7 @@
        {
         "name": "URSSAF Calculator",
         "image": "https://leguidedelartiste.com/wp-content/uploads/2021/06/declaration-urssaf-illustration.jpg",
-        "description": "Créer un calculateur de cotisations URSSAF",
+        "description": "Créer une fonction qui calcul le reste suite au paiement de l'URSSAF et mettre en place un test unitaire",
         "concept" : "Création de test unitaires avec Jest"
        },
        {
