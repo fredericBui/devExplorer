@@ -58,7 +58,13 @@
         "name": "Display the cheapest product of FakeStore API",
         "image": "https://i.kym-cdn.com/news_feeds/icons/mobile/000/031/333/4ac.jpg",
         "description": "Récupérer les produits de l'API FakeStore et afficher le produit le moins cher",
-        "concept" : "Utilisation de l'API Fetch et des promesses, ainsi que de la méthode sort()"
+        "concept" : "Utilisation de l'API Fetch"
+       },
+       {
+        "name": "Four stars product",
+        "image": "https://i.chzbgr.com/full/9000414208/h6C2F6672/perfect",
+        "description": "Afficher les produits de l'API FakeStore qui ont une note supérieure à 4 étoiles",
+        "concept" : "Utilisation de l'API Fetch et de la méthode filter()"
        },
        {
         "name": "You're the Hero",
