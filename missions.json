@@ -67,6 +67,12 @@
         "concept" : "Création d'objets et de méthodes"
        },
        {
+        "name": "Email me",
+        "image": "https://rasa.io/wp-content/uploads/2022/05/rasaio_emailmemes_what-is-this-an-email-with-no-attachment.jpeg",
+        "description": "Créer un service d'envoi d'email avec Node.js et Nodemailer",
+        "concept" : "Nodemailer & mailtrap"
+       },
+       {
         "name": "... to be continued",
         "description": "Vous souhaitez proposer une autre mission à réaliser ? Participez au repository et réalisez une pull request",
         "concept" : "https://github.com/fredericBui/devExplorer"
