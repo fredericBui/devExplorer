@@ -10,6 +10,10 @@ class Hero {
         this.healPoints = getRandomArbitrary(50, 100).toFixed(0);
         this.attackPoints = getRandomArbitrary(5, 20).toFixed(0);
     }
+    
+    attack() {
+        return this.attackPoints;
+    }
 }
 
 class Monster {
@@ -17,6 +21,10 @@ class Monster {
         this.name = name;
         this.healPoints = getRandomArbitrary(50, 100).toFixed(0);
         this.attackPoints = getRandomArbitrary(5, 20).toFixed(0);
+    }
+
+    attack() {
+        return this.attackPoints;
     }
 }
 
@@ -27,3 +35,11 @@ console.log(`${hero.name} vs ${monster.name}`);
 console.log(`Hero: ${hero.healPoints} HP, ${hero.attackPoints} ATK`);
 console.log(`Monster: ${monster.healPoints} HP, ${monster.attackPoints} ATK`);
 console.log("Battle begins!");
+console.log("==========================");
+
+console.log(`Hero 🗡️ Monster!`);
+monster.healPoints -= hero.attack();
+console.log(`Monster's remaining ♡ : ${monster.healPoints} HP`);
+console.log(`Monster 🗡️ Hero!`);
+hero.healPoints -= monster.attack();
+console.log(`Hero's remaining ♡ : ${hero.healPoints} HP`);
