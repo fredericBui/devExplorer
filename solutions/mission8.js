@@ -1,28 +1,48 @@
-// En cours de développement
-const prompt = require('prompt-sync')();
-const mysteryWord = "javascript";
-const mysteryWordLength = mysteryWord.length;
-const correctLetters = [];
-let lettersFound = [];
-let attempts = 5;
+const prompt = require("prompt-sync")();
 
-for (let i = 0; i < mysteryWord.length; i++) {
-    correctLetters.push(mysteryWord[i]);
-}
-
-console.log(`Try to guess the word letter by letter. The word has ${mysteryWordLength} letters.`);
-
-while (attempts != 0) {
-    let promptedLetter = prompt("Enter a letter: ");
-    if (lettersFound.includes(promptedLetter)) {
-        console.log("You already guessed that letter. Try again.");
-    } else if (correctLetters.includes(promptedLetter)) {
-        lettersFound.push(promptedLetter);
-        console.log(`Correct! Letters found so far: [${lettersFound}]`);
-    } else {
-        attempts--;
-        console.log(`Incorrect guess. You have ${attempts} attempts left. Letters found so far: [${lettersFound}]`);
+// Update the display array with the correct letters
+function updateDisplay(word, letter, display) {
+  for (let i = 0; i < display.length; i++) {
+    if (word[i] === letter) {
+      display[i] = letter;
     }
+  }
 }
 
-console.log("Game over! The word was: " + mysteryWord);
+let misteryWord = "hello";
+let lives = 5;
+
+// Create an array with the same word length to display
+let displayWord = [];
+for (let i = 0; i < misteryWord.length; i++) {
+    displayWord[i] = "_";
+}
+
+while (true) {
+  console.log(displayWord);
+  console.log(`${lives} lives`);
+
+  if (lives <= 0) {
+    console.log(`Game Over! The word was ${misteryWord}`);
+    break;
+  }
+
+  if (displayWord.join("") === misteryWord) {
+    console.log(`You found it! ${misteryWord} is the correct word!`);
+    break;
+  }
+
+  let letter = prompt("Make a guess: ");
+
+  if (displayWord.includes(letter)) {
+    console.log("You already guessed this letter");
+  } else if (!misteryWord.includes(letter)) {
+    console.log("Wrong!");
+    lives--;
+  } else {
+    console.log("Right!");
+    updateDisplay(misteryWord, letter, displayWord);
+  }
+}
+
+// Try to track all letters typed by the user
